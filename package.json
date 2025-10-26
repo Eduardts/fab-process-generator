@@ -1,0 +1,26 @@
+{
+  "name": "fab-process-generator",
+  "version": "1.0.0",
+  "description": "GDS-II mask layout to nanofabrication process flow generator",
+  "main": "cli/generate_flow.js",
+  "bin": {
+    "fab-gen": "./cli/generate_flow.js"
+  },
+  "scripts": {
+    "start": "node cli/generate_flow.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nanofabrication",
+    "GDS-II",
+    "MEMS",
+    "CMOS",
+    "process-flow"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "chalk": "^4.1.2"
+  }
+}

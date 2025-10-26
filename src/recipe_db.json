@@ -1,0 +1,445 @@
+{
+  "cmos_standard": {
+    "name": "Standard CMOS Process",
+    "technology_node": "180nm",
+    "steps": [
+      {
+        "step": 1,
+        "operation": "substrate_preparation",
+        "description": "Clean silicon wafer, RCA clean",
+        "material": "Si <100>",
+        "duration_min": 30
+      },
+      {
+        "step": 2,
+        "operation": "thermal_oxidation",
+        "description": "Grow field oxide (STI)",
+        "material": "SiO2",
+        "thickness_nm": 400,
+        "temperature_c": 1000,
+        "duration_min": 180
+      },
+      {
+        "step": 3,
+        "operation": "lithography",
+        "description": "Pattern active areas",
+        "layer": "ACTIVE",
+        "resist": "positive",
+        "exposure": "i-line"
+      },
+      {
+        "step": 4,
+        "operation": "etch",
+        "description": "Etch field oxide",
+        "etchant": "BOE",
+        "depth_nm": 400,
+        "selectivity": "10:1"
+      },
+      {
+        "step": 5,
+        "operation": "implantation",
+        "description": "N-well formation",
+        "dopant": "Phosphorus",
+        "dose_cm2": 1e13,
+        "energy_kev": 150
+      },
+      {
+        "step": 6,
+        "operation": "thermal_oxidation",
+        "description": "Grow gate oxide",
+        "material": "SiO2",
+        "thickness_nm": 5,
+        "temperature_c": 900,
+        "duration_min": 60
+      },
+      {
+        "step": 7,
+        "operation": "deposition",
+        "description": "Deposit polysilicon gate",
+        "material": "Poly-Si",
+        "method": "LPCVD",
+        "thickness_nm": 200,
+        "temperature_c": 620
+      },
+      {
+        "step": 8,
+        "operation": "lithography",
+        "description": "Pattern gates",
+        "layer": "POLY",
+        "resist": "positive"
+      },
+      {
+        "step": 9,
+        "operation": "etch",
+        "description": "Etch polysilicon",
+        "method": "RIE",
+        "chemistry": "Cl2/HBr",
+        "selectivity": "20:1"
+      },
+      {
+        "step": 10,
+        "operation": "implantation",
+        "description": "Source/Drain implant",
+        "dopant": "Arsenic",
+        "dose_cm2": 5e15,
+        "energy_kev": 50
+      },
+      {
+        "step": 11,
+        "operation": "deposition",
+        "description": "Deposit interlayer dielectric",
+        "material": "SiO2",
+        "method": "PECVD",
+        "thickness_nm": 500
+      },
+      {
+        "step": 12,
+        "operation": "cmp",
+        "description": "Planarize ILD",
+        "target_thickness_nm": 400
+      },
+      {
+        "step": 13,
+        "operation": "lithography",
+        "description": "Pattern contacts",
+        "layer": "CONTACT",
+        "resist": "positive"
+      },
+      {
+        "step": 14,
+        "operation": "etch",
+        "description": "Etch contact holes",
+        "method": "RIE",
+        "depth_nm": 400
+      },
+      {
+        "step": 15,
+        "operation": "deposition",
+        "description": "Deposit barrier/seed layer",
+        "material": "TiN/Ti",
+        "method": "PVD",
+        "thickness_nm": 20
+      },
+      {
+        "step": 16,
+        "operation": "metallization",
+        "description": "Fill contacts with tungsten",
+        "material": "W",
+        "method": "CVD"
+      },
+      {
+        "step": 17,
+        "operation": "cmp",
+        "description": "Planarize tungsten plugs"
+      },
+      {
+        "step": 18,
+        "operation": "deposition",
+        "description": "Deposit metal 1",
+        "material": "AlCu",
+        "method": "PVD",
+        "thickness_nm": 500
+      },
+      {
+        "step": 19,
+        "operation": "lithography",
+        "description": "Pattern metal 1",
+        "layer": "METAL1",
+        "resist": "positive"
+      },
+      {
+        "step": 20,
+        "operation": "etch",
+        "description": "Etch metal 1",
+        "method": "RIE",
+        "chemistry": "Cl2/BCl3"
+      }
+    ]
+  },
+  "mems_cantilever": {
+    "name": "MEMS Cantilever Process",
+    "application": "AFM/sensor",
+    "steps": [
+      {
+        "step": 1,
+        "operation": "substrate_preparation",
+        "description": "SOI wafer preparation",
+        "material": "SOI (device 2um, BOX 1um)",
+        "duration_min": 30
+      },
+      {
+        "step": 2,
+        "operation": "thermal_oxidation",
+        "description": "Grow masking oxide",
+        "material": "SiO2",
+        "thickness_nm": 100,
+        "temperature_c": 1000
+      },
+      {
+        "step": 3,
+        "operation": "lithography",
+        "description": "Pattern cantilever shape",
+        "layer": "CANTILEVER",
+        "resist": "positive",
+        "critical_dimension_um": 5
+      },
+      {
+        "step": 4,
+        "operation": "etch",
+        "description": "DRIE of device layer",
+        "method": "Bosch process",
+        "depth_um": 2,
+        "aspect_ratio": "10:1"
+      },
+      {
+        "step": 5,
+        "operation": "strip",
+        "description": "Remove photoresist",
+        "method": "O2 plasma"
+      },
+      {
+        "step": 6,
+        "operation": "deposition",
+        "description": "Deposit piezo layer",
+        "material": "AlN",
+        "method": "Sputtering",
+        "thickness_nm": 500
+      },
+      {
+        "step": 7,
+        "operation": "lithography",
+        "description": "Pattern electrodes",
+        "layer": "ELECTRODE",
+        "resist": "positive"
+      },
+      {
+        "step": 8,
+        "operation": "metallization",
+        "description": "Deposit electrode metal",
+        "material": "Pt/Ti",
+        "method": "E-beam evap",
+        "thickness_nm": 100
+      },
+      {
+        "step": 9,
+        "operation": "liftoff",
+        "description": "Metal liftoff process"
+      },
+      {
+        "step": 10,
+        "operation": "lithography",
+        "description": "Pattern release windows (backside)",
+        "layer": "RELEASE",
+        "resist": "thick resist"
+      },
+      {
+        "step": 11,
+        "operation": "etch",
+        "description": "DRIE through handle wafer",
+        "method": "Bosch process",
+        "depth_um": 400
+      },
+      {
+        "step": 12,
+        "operation": "wet_etch",
+        "description": "Release cantilevers (HF)",
+        "etchant": "HF 49%",
+        "target": "Buried oxide",
+        "duration_min": 10
+      },
+      {
+        "step": 13,
+        "operation": "critical_point_dry",
+        "description": "CPD to prevent stiction"
+      }
+    ]
+  },
+  "mems_pressure_sensor": {
+    "name": "MEMS Pressure Sensor",
+    "application": "Capacitive pressure sensing",
+    "steps": [
+      {
+        "step": 1,
+        "operation": "substrate_preparation",
+        "description": "Silicon wafer cleaning",
+        "material": "Si <100>"
+      },
+      {
+        "step": 2,
+        "operation": "thermal_oxidation",
+        "description": "Grow isolation oxide",
+        "material": "SiO2",
+        "thickness_nm": 500
+      },
+      {
+        "step": 3,
+        "operation": "deposition",
+        "description": "Deposit bottom electrode",
+        "material": "Poly-Si",
+        "method": "LPCVD",
+        "thickness_nm": 300,
+        "doping": "n+"
+      },
+      {
+        "step": 4,
+        "operation": "lithography",
+        "description": "Pattern bottom electrode",
+        "layer": "BOTTOM_ELECTRODE"
+      },
+      {
+        "step": 5,
+        "operation": "etch",
+        "description": "Etch poly-Si",
+        "method": "RIE"
+      },
+      {
+        "step": 6,
+        "operation": "deposition",
+        "description": "Deposit sacrificial layer",
+        "material": "PSG",
+        "thickness_nm": 2000
+      },
+      {
+        "step": 7,
+        "operation": "lithography",
+        "description": "Pattern anchor points",
+        "layer": "ANCHOR"
+      },
+      {
+        "step": 8,
+        "operation": "etch",
+        "description": "Etch anchors through PSG",
+        "method": "Wet etch"
+      },
+      {
+        "step": 9,
+        "operation": "deposition",
+        "description": "Deposit membrane",
+        "material": "SiNx",
+        "method": "LPCVD",
+        "thickness_nm": 500,
+        "stress": "low"
+      },
+      {
+        "step": 10,
+        "operation": "lithography",
+        "description": "Pattern membrane",
+        "layer": "MEMBRANE"
+      },
+      {
+        "step": 11,
+        "operation": "etch",
+        "description": "Etch SiNx",
+        "method": "RIE",
+        "chemistry": "SF6/O2"
+      },
+      {
+        "step": 12,
+        "operation": "lithography",
+        "description": "Pattern release holes",
+        "layer": "RELEASE_HOLE"
+      },
+      {
+        "step": 13,
+        "operation": "etch",
+        "description": "Etch release holes",
+        "method": "RIE"
+      },
+      {
+        "step": 14,
+        "operation": "wet_etch",
+        "description": "Release structure (remove PSG)",
+        "etchant": "HF",
+        "duration_min": 15
+      },
+      {
+        "step": 15,
+        "operation": "sealing",
+        "description": "Seal release holes",
+        "material": "PECVD oxide",
+        "method": "Low temp PECVD"
+      }
+    ]
+  },
+  "photonics_waveguide": {
+    "name": "Silicon Photonics Waveguide",
+    "technology": "SOI photonics",
+    "steps": [
+      {
+        "step": 1,
+        "operation": "substrate_preparation",
+        "description": "SOI wafer for photonics",
+        "material": "SOI (Si 220nm, BOX 2um)"
+      },
+      {
+        "step": 2,
+        "operation": "deposition",
+        "description": "Deposit hard mask",
+        "material": "SiO2",
+        "method": "PECVD",
+        "thickness_nm": 100
+      },
+      {
+        "step": 3,
+        "operation": "lithography",
+        "description": "Pattern waveguides (E-beam)",
+        "layer": "WAVEGUIDE",
+        "resist": "e-beam resist",
+        "resolution_nm": 50
+      },
+      {
+        "step": 4,
+        "operation": "etch",
+        "description": "Transfer pattern to hard mask",
+        "method": "RIE",
+        "chemistry": "CHF3"
+      },
+      {
+        "step": 5,
+        "operation": "strip",
+        "description": "Remove e-beam resist"
+      },
+      {
+        "step": 6,
+        "operation": "etch",
+        "description": "Etch silicon waveguides",
+        "method": "ICP-RIE",
+        "chemistry": "Cl2/HBr",
+        "depth_nm": 220,
+        "sidewall_roughness_nm": 2
+      },
+      {
+        "step": 7,
+        "operation": "wet_etch",
+        "description": "Remove hard mask",
+        "etchant": "BOE"
+      },
+      {
+        "step": 8,
+        "operation": "deposition",
+        "description": "Deposit cladding",
+        "material": "SiO2",
+        "method": "PECVD",
+        "thickness_nm": 2000
+      },
+      {
+        "step": 9,
+        "operation": "cmp",
+        "description": "Planarize cladding"
+      },
+      {
+        "step": 10,
+        "operation": "lithography",
+        "description": "Pattern grating couplers",
+        "layer": "GRATING"
+      },
+      {
+        "step": 11,
+        "operation": "etch",
+        "description": "Etch grating pattern",
+        "method": "RIE",
+        "depth_nm": 70
+      }
+    ]
+  }
+}
